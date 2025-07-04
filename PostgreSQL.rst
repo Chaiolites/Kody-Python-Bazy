@@ -9,12 +9,12 @@ PostgreSQL
     import simplejson                                                                          # umożliwia ładowanie plików JSON z dodatkową obsługą typów
     from sqlalchemy import create_engine, text                                                 # create_engine tworzy połączenie z bazą, text dla zapytań SQL
 
-#Wczytanie poświadczeń z pliku JSON
+# Wczytanie poświadczeń z pliku JSON
 
     with open("/home/student06/Bazy/database_creds.json") as db_con_file:
         creds = simplejson.loads(db_con_file.read())                                    # creds to słownik: {'user_name': ..., 'password': ..., 'host_name': ..., 'port_number': ..., 'db_name': ...}
 
-# 2. Zbudowanie łańcucha połączenia do PostgreSQL w formacie SQLAlchemy
+#  Zbudowanie łańcucha połączenia do PostgreSQL w formacie SQLAlchemy
     connection = 'postgresql+psycopg://' + \
                     creds['user_name'] + ':' + creds['password'] + '@' + \
                     creds['host_name'] + ':' + creds['port_number'] + '/' + \
